@@ -27,7 +27,7 @@ def calculate_maxcut():
     # For those familiar with the algorithm - if you want to tweak any hyperparameters ;)
 
     num_layers = 4 # The number of layers to repeat our cost and mixer unitaries
-    num_reps = 25 # The number of repetitions of the circuit when sampling probability distribution. AKA the number of shots.
+    num_reps = 100 # The number of repetitions of the circuit when sampling probability distribution. AKA the number of shots.
     num_iters = 25 # The number of iterations our optimizer will go through when optimizing parameters
     init_params = 0.01 * np.random.rand(2, num_layers) # Initialize the parameters near zero. Generates array size 2, 4.
 
