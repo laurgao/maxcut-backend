@@ -139,7 +139,7 @@ def calculate_maxcut():
             
             total_cost = float(total_cost) / 100
             print("Cost: "+str(total_cost))
-
+            yield ""
             return total_cost
 
         nodes = []
