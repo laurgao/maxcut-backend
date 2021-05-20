@@ -2,10 +2,11 @@ import pennylane as qml
 from pennylane import numpy as np
 import networkx as nx
 from scipy.optimize import minimize
+import matplotlib.pyplot as plt
 
 np.random.seed(42)
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_file
 
 app = Flask(__name__) # __name__ references this file
 
@@ -13,7 +14,7 @@ app = Flask(__name__) # __name__ references this file
 def calculate_maxcut():
     data = request.get_json() # what will this data varialbe look like?
     edges = data["edges"] # will be an array
-
+    yield "<br/>"
     # ALL USER INPUTS ## 
 
     # convert strings to numbers
@@ -27,7 +28,7 @@ def calculate_maxcut():
     # For those familiar with the algorithm - if you want to tweak any hyperparameters ;)
 
     num_layers = 4 # The number of layers to repeat our cost and mixer unitaries
-    num_reps = 100 # The number of repetitions of the circuit when sampling probability distribution. AKA the number of shots.
+    num_reps = 50 # The number of repetitions of the circuit when sampling probability distribution. AKA the number of shots.
     num_iters = 25 # The number of iterations our optimizer will go through when optimizing parameters
     init_params = 0.01 * np.random.rand(2, num_layers) # Initialize the parameters near zero. Generates array size 2, 4.
 
