@@ -6,16 +6,19 @@ from scipy.optimize import minimize
 np.random.seed(42)
 
 from flask import Flask, json, jsonify, request, Response, stream_with_context
+from flask_cors import CORS
 
 app = Flask(__name__) # __name__ references this file
+CORS(app)
 
 @app.route('/qaoa', methods=['POST'])
 def calculate_maxcut():
     data = request.get_json()
     edges = data["edges"]
+    
     def generate():
         yield "Sorry, this takes a while... "
-        # ALL USER INPUTS ## 
+
         # convert strings to numbers
         for i in range(len(edges)):
             edges[i][0] = int(edges[i][0])
