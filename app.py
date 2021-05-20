@@ -2,11 +2,10 @@ import pennylane as qml
 from pennylane import numpy as np
 import networkx as nx
 from scipy.optimize import minimize
-import matplotlib.pyplot as plt
 
 np.random.seed(42)
 
-from flask import Flask, jsonify, request, send_file
+from flask import Flask, jsonify, request
 
 app = Flask(__name__) # __name__ references this file
 
